@@ -13,7 +13,7 @@ exports.getAllUsers = async (req, res) => {
 exports.createUser = async (req, res) => {
   try {
     const user = await userService.createUser(req.body);
-    return successResponse(res, 'User created successfully', user, 201);
+    return successResponse(res, 'User created successfully', user);
   } catch (error) {
     return errorResponse(res, error.message);
   }
@@ -31,7 +31,7 @@ exports.updateUser = async (req, res) => {
 exports.deleteUser = async (req, res) => {
   try {
     await userService.deleteUser(req.params.id);
-    return successResponse(res, 'User deleted successfully', null, 204);
+    return successResponse(res, 'User deleted successfully', null);
   } catch (error) {
     return errorResponse(res, error.message);
   }

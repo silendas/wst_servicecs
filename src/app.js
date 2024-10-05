@@ -8,6 +8,9 @@ const sequelize = require('./config/db');
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const courseRoutes = require('./routes/courseRoutes');
+const lecturerRoutes = require('./routes/lecturerRoutes'); // Tambahkan ini
+const studentRoutes = require('./routes/studentRoutes'); // Tambahkan ini
+const roomRoutes = require('./routes/roomRoutes'); // Tambahkan ini
 
 const auth = require('./middleware/auth');
 const notFound = require('./middleware/notFound');
@@ -28,6 +31,9 @@ app.use('/auth', authRoutes);
 // Routes dengan autentikasi
 app.use('/users', auth, userRoutes);
 app.use('/courses', auth, courseRoutes);
+app.use('/lecturers', auth, lecturerRoutes);
+app.use('/students', auth, studentRoutes);
+app.use('/rooms', auth, roomRoutes);
 
 // Middleware untuk rute yang tidak ada
 app.use(notFound);

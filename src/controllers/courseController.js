@@ -13,7 +13,7 @@ exports.getAllCourses = async (req, res) => {
 exports.createCourse = async (req, res) => {
   try {
     const course = await courseService.createCourse(req.body);
-    return successResponse(res, 'Course created successfully', course, 201);
+    return successResponse(res, 'Course created successfully', course);
   } catch (error) {
     return errorResponse(res, error.message);
   }
@@ -31,7 +31,7 @@ exports.updateCourse = async (req, res) => {
 exports.deleteCourse = async (req, res) => {
   try {
     await courseService.deleteCourse(req.params.id);
-    return successResponse(res, 'Course deleted successfully', null, 204);
+    return successResponse(res, 'Course deleted successfully', null);
   } catch (error) {
     return errorResponse(res, error.message);
   }

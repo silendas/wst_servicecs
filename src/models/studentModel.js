@@ -1,24 +1,19 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
-const Course = sequelize.define('Course', {
-  code: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
+const Student = sequelize.define('Student', {
   name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  sks: {
-    type: DataTypes.INTEGER,
+  department: {
+    type: DataTypes.STRING,
     allowNull: false,
   },
-  deleted: { 
+  deleted: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
 });
 
-module.exports = Course;
+module.exports = Student;
